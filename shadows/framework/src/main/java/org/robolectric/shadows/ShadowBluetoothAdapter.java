@@ -10,6 +10,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.BluetoothServerSocket;
 import android.bluetooth.BluetoothSocket;
+import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.content.Context;
 import android.os.ParcelUuid;
 import java.util.Collections;
@@ -46,6 +47,11 @@ public class ShadowBluetoothAdapter {
   @Implementation
   protected static BluetoothAdapter getDefaultAdapter() {
     return (BluetoothAdapter) ShadowApplication.getInstance().getBluetoothAdapter();
+  }
+
+  @Implementation(minSdk = LOLLIPOP)
+  public BluetoothLeAdvertiser getBluetoothLeAdvertiser() {
+    return ShadowBluetoothLeAdvertiser.getInstance();
   }
 
   @Implementation
