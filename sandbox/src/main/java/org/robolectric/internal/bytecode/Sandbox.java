@@ -8,7 +8,7 @@ import org.robolectric.sandbox.UrlResourceProvider;
 import org.robolectric.shadow.api.Shadow;
 
 /**
- * A Sandbox represents an isolated execution environment with instrumented classes.
+ * A `Sandbox` represents an isolated execution environment with instrumented classes.
  */
 public class Sandbox {
   private final ClassLoader sandboxClassLoader;

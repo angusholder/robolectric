@@ -188,20 +188,5 @@ public class BootstrapDeferringRobolectricTestRunner extends RobolectricTestRunn
         BootstrapDeferringRobolectricTestRunner.bootstrapWrapper = null;
       }
     }
-
-    @Override
-    protected Bridge getBridge() {
-      Bridge parallelUniverse = super.getBridge();
-      try {
-        Bridge wrapper = bootstrappedClass(BootstrapWrapper.class)
-            .asSubclass(Bridge.class)
-            .getConstructor(Bridge.class)
-            .newInstance(parallelUniverse);
-        myBootstrapWrapper = (BootstrapWrapper) wrapper;
-        return wrapper;
-      } catch (ReflectiveOperationException e) {
-        throw new RuntimeException(e);
-      }
-    }
   }
 }

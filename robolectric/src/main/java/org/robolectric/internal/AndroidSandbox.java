@@ -18,6 +18,9 @@ import org.robolectric.internal.bytecode.Sandbox;
 import org.robolectric.manifest.AndroidManifest;
 import org.robolectric.sandbox.UrlResourceProvider;
 
+/**
+ * A Robolectric {@link Sandbox} configured for use as a simulation of a running Android device.
+ */
 @SuppressWarnings("NewApi")
 public class AndroidSandbox extends Sandbox {
 
@@ -62,10 +65,6 @@ public class AndroidSandbox extends Sandbox {
 
   public SdkConfig getSdkConfig() {
     return sdkConfig;
-  }
-
-  protected Bridge getBridge() {
-    return bridge;
   }
 
   public void executeSynchronously(Runnable runnable) {
